@@ -1,0 +1,24 @@
+{% import "_includes/forms" as forms %}
+
+{% set config = {
+    id: name,
+    name: name,
+    value: value,
+    class: 'nicetext',
+    placeholder: settings.placeholder,
+} %}
+
+{% set hasTypeArguments = settings.typeArguments | length %}
+{% set arguments %}
+{% spaceless %}
+{% for argument in settings.typeArguments %}
+  {% for attribute in argument %}"{{ attribute }}"{% if loop.first %}:{% endif %}{% endfor %}
+  {% if not loop.last %},{% endif %}
+{% endfor %}
+{% endspaceless %}
+{% endset %}
+
+{% set arguments = '{' ~ arguments | trim ~ '}' %}
+
+{{ forms.textField(config) }}
+<a id="{{ name }}-randomize" data-randomm-trigger="{{ namespaceId }}" data-randomm-type="{{ settings.type }}"{% if hasTypeArguments %} data-randomm-arguments="{{arguments}}"{% endif %} class="randomm-trigger">Randomize!</a>

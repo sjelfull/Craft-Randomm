@@ -1,0 +1,41 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.selectField({
+    label: 'Random type',
+    instructions: 'Uses chance.js for generation',
+    id:     'type',
+    name:   'type',
+    options: types,
+    value:  settings.type,
+    errors: "",
+}) }}
+
+{# {{ forms.textField({
+    label: 'Type arguments',
+    instructions: 'Send the defined arguments object when running chance.js. See documentation at <a href="http://chancejs.com/">chancejs.com</a> for valid arguments for every type.',
+    id:     'typeArguments',
+    name:   'typeArguments',
+    value:  settings.typeArguments,
+    errors: "",
+}) }} #}
+
+{{ forms.editableTable({
+    label: 'Type arguments',
+    instructions: 'Send the defined arguments object when running chance.js. See documentation at <a href="http://chancejs.com/">chancejs.com</a> for valid arguments for every type.',
+    id:     'typeArguments',
+    name:   'typeArguments',
+    cols: [
+        { 'heading' : 'Key' },
+        { 'heading' : 'Value' },
+    ],
+    rows: settings.typeArguments
+}) }}
+
+{{ forms.textField({
+    label: 'Placeholder',
+    instructions: 'Sets the placeholder attribute',
+    id:     'placeholder',
+    name:   'placeholder',
+    value:  settings.placeholder,
+    errors: "",
+}) }}
