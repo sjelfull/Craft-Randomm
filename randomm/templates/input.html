@@ -21,4 +21,4 @@
 {% set arguments = '{' ~ arguments | trim ~ '}' %}
 
 {{ forms.textField(config) }}
-<a id="{{ name }}-randomize" data-randomm-trigger="{{ namespaceId }}" data-randomm-type="{{ settings.type }}"{% if hasTypeArguments %} data-randomm-arguments="{{arguments}}"{% endif %} class="randomm-trigger">Randomize!</a>
+<a id="{{ name }}-randomize" data-randomm-trigger="{{ namespaceId }}" data-randomm-type="{{ settings.type }}"{% if hasTypeArguments %} data-randomm-arguments="{{arguments}}"{% endif %}{% if settings.autoGenerateIfEmpty %} data-randomm-autogenerate{% endif %} class="randomm-trigger">Randomize!</a>

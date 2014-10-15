@@ -10,16 +10,7 @@
     errors: "",
 }) }}
 
-{# {{ forms.editableTableField({
-    label: 'Type arguments',
-    instructions: 'Send the defined arguments object when running chance.js. See documentation at <a href="http://chancejs.com/">chancejs.com</a> for valid arguments for every type.',
-    id:     'typeArguments',
-    name:   'typeArguments',
-    value:  settings.typeArguments,
-    errors: "",
-}) }} #}
-
-{{ forms.editableTable({
+{{ forms.editableTableField({
     label: 'Type arguments',
     instructions: 'Send the defined arguments object when running chance.js. See documentation at <a href="http://chancejs.com/">chancejs.com</a> for valid arguments for every type.',
     id:     'typeArguments',
@@ -37,5 +28,14 @@
     id:     'placeholder',
     name:   'placeholder',
     value:  settings.placeholder,
+    errors: "",
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'Generate on load',
+    instructions: 'Auto-generate if field is empty',
+    id:     'autoGenerateIfEmpty',
+    name:   'autoGenerateIfEmpty',
+    on:  (settings.autoGenerateIfEmpty is defined and settings.autoGenerateIfEmpty) ? true : false,
     errors: "",
 }) }}

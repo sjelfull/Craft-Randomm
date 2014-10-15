@@ -55,6 +55,7 @@ class RandommFieldType extends BaseFieldType {
             'placeholder'   => [AttributeType::String, 'default' => 'Generate random things'],
             'type'          => [AttributeType::String],
             'typeArguments' => AttributeType::Mixed,
+            'autoGenerateIfEmpty' => AttributeType::Bool,
         ];
     }
 
